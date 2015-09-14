@@ -1,0 +1,9 @@
+<h1>Wines</h1>
+
+<ul>
+    <% @wines.each do |wine| %>
+        <li>
+            <strong> <%= wine.country %> -- <%= wine.region %>  -- <%= wine.producer %> -- <%= wine.vineyard %> -- <%= wine.predominant_variety%> -- <%= wine.vintage%> </strong>
+        </li>
+    <% end %>
+</ul>

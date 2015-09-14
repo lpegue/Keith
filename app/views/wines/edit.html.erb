@@ -1,0 +1,39 @@
+<h1>Edit</h1>
+
+<%= form_for @wine do |f| %>
+
+    <div>
+        <%= f.label :country %>
+        <%= f.text_field :country %>
+    </div>
+
+    <div>
+        <%= f.label :region %>
+        <%= f.text_field :region %>
+    </div>
+
+    <div>
+        <%= f.label :producer %>
+        <%= f.text_field :producer %>
+    </div>
+
+    <div>
+        <%= f.label :vineyard %>
+        <%= f.text_field :vineyard %>
+    </div>
+
+    <div>
+        <%= f.label :predominant_variety %>
+        <%= f.text_field :predominant_variety%>
+    </div>
+
+    <div>
+        <%= f.label :vintage %>
+        <%= f.text_field :vintage %>
+    </div>
+
+    <%= f.submit "Submit changes" %>
+
+<% end %>
+
+<%= link_to "Back to list", wine_path %>
