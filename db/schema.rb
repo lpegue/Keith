@@ -20,9 +20,12 @@ ActiveRecord::Schema.define(version: 20150914180236) do
     t.string   "comments"
     t.string   "paired_with"
     t.string   "rating"
+    t.integer  "wine_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  add_index "reviews", ["wine_id"], name: "index_reviews_on_wine_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "lastname"
@@ -43,4 +46,5 @@ ActiveRecord::Schema.define(version: 20150914180236) do
     t.datetime "updated_at",          null: false
   end
 
+  add_foreign_key "reviews", "wines"
 end

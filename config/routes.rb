@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  # root "static_page"
+
+   # resources :wines do
+   #  resources :reviews 
+   # end
+
+  resources :users
+
   get "/wines" => "wines#index"
   get "/wines/new" => "wines#new", as: :new_wine
   get "/wines/:id" => "wines#show", as: :wine
@@ -8,20 +16,22 @@ Rails.application.routes.draw do
   delete "/wines/:id" => "wines#destroy"
   get "/wines/:id/edit" => "wines#edit", as: :edit_wine
 
-  get "/review/new" => "reviews#new", as: :new_review
-  get "/review/:id" => "reviews#show", as: :review
-  post "/review/" => "reviews#create"
-  patch "/reviews/:id" => "reviews#update"
-  delete "/reviews/:id" => "reviews#destroy"
-  get "/reviews/:id/edit" => "reviews#edit", as: :edit_review
+  get "/wines/:wine_id/reviews/new" => "reviews#new", as: :new_wine_review
+  get "/wines/:wine_id/reviews/:id" => "reviews#show", as: :review
+  post "/wines/:wine_id/reviews/" => "reviews#create"
+  patch "/wines/:wine_id/reviews/:id" => "reviews#update"
+  delete "/wines/:wine_id/reviews/:id" => "reviews#destroy"
+  get "/wines/:wine_id/reviews/:id/edit" => "reviews#edit", as: :edit_review
 
-  get "/user/new" => "users#new", as: :new_users
-  post "/user/" => "users#create"
-  patch "/users/:id" => "users#update"
-  delete "/users/:id" => "users#destroy"
-  get "/users/:id/edit" => "users#edit", as: :edit_user
+  # get "/wines/:wine_id/reviews/:review_id/users/new" => "users#new", as: :new_users
+  # post "/wines/:wine_id/reviews/:review_id/users/" => "users#create"
+  # patch "/wines/:wine_id/reviews/:review_id/users/:id" => "users#update"
+  # delete "/wines/:wine_id/reviews/:review_id/users/:id" => "users#destroy"
+  # get "/wines/:wine_id/reviews/:review_id/users/:id/edit" => "users#edit", as: :edit_user
 
 
+
+  # get "/about" => "about#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

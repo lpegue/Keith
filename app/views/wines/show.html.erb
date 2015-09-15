@@ -1,6 +1,7 @@
-<h1> <%= @wine.name %> </h1>
+<h1> <%= @wine.predominant_variety %> </h1>
 
 <p>This is a <%= @wine.vintage %> <%= @wine.predominant_variety %> from the <%= @wine.region %> region of the <%= @wine.country%>.  The producer is <%= @wine.producer%> and the vineyard is <%= @wine.vineyard%>.</p>
 
-<%= link_to "Back to list"%>
-<%= link_to "Delete this wine", wine_path, method: :delete, data: { confirm: "Are you sure you want to delete this wine?"} %>", wines_path %>
+<%= link_to "Back to list", wines_path%>
+<%= link_to "Delete", wine_path, method: :delete, data: { confirm: "Are you sure you want to delete this wine?"} %>
+<%= link_to "Edit", edit_wine_path( @wine ) %>

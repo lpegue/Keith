@@ -4,6 +4,10 @@
     <% @wines.each do |wine| %>
         <li>
             <strong> <%= wine.country %> -- <%= wine.region %>  -- <%= wine.producer %> -- <%= wine.vineyard %> -- <%= wine.predominant_variety%> -- <%= wine.vintage%> </strong>
+
+             	<%= link_to "Edit this wine", edit_wine_path( wine ) %>
+				<%= link_to "Delete this wine", wine_path( wine ), method: :delete, data: { confirm: "Are you sure you want to delete this wine?"} %>
+				<%= link_to "Show more info", wine_path( wine )%>
         </li>
     <% end %>
 </ul>
