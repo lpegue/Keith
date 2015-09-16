@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
 
+	def index
+    	@users = User.all
+  	end
+
 	def new
 		@user = User.new
 	end
@@ -28,13 +32,12 @@ class UsersController < ApplicationController
   			end
 	end
 
-	def destroy
-		@user = User.find(params[:id])
-  		@user.destroy
-  		redirect_to user_path
+private
+	def user_params
+		params.require(:user).permit(:firstname, :lastname, :email, :password, :password_confirmation)
 	end
 end
 
 
 
-end
+

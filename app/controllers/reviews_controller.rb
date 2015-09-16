@@ -6,13 +6,15 @@ class ReviewsController < ApplicationController
 
 	def new
 		@review = Review.new
+		@wine = Wine.find(params[:wine_id])
 	end
 
 	def create
-		@review = Review.new(params.require(:review).permit(:comments, :paired_with, :rating))
+		@wine = Wine.find(params[:wine_id])
+		@review = @wine.reviews.new(params.require(:review).permit(:comments, :paired_with, :rating))
 
 		if @review.save
-			redirect_to reviews_path
+			redirect_to wine_path(@wine)
 		else
 			render :new
 		end

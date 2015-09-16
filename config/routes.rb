@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
 
-  # root "static_page"
+#  get 'static_pages/home' => 'static_pages#home'
+
+
+ root to: "static_pages#home"
+
+ get '/contact' => 'static_pages#contact'
+
+ get '/about' => 'static_pages#about'
 
    # resources :wines do
    #  resources :reviews 
@@ -18,7 +25,7 @@ Rails.application.routes.draw do
 
   get "/wines/:wine_id/reviews/new" => "reviews#new", as: :new_wine_review
   get "/wines/:wine_id/reviews/:id" => "reviews#show", as: :review
-  post "/wines/:wine_id/reviews/" => "reviews#create"
+  post "/wines/:wine_id/reviews/" => "reviews#create", as: :wine_reviews
   patch "/wines/:wine_id/reviews/:id" => "reviews#update"
   delete "/wines/:wine_id/reviews/:id" => "reviews#destroy"
   get "/wines/:wine_id/reviews/:id/edit" => "reviews#edit", as: :edit_review

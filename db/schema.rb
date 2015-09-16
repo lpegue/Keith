@@ -31,8 +31,9 @@ ActiveRecord::Schema.define(version: 20150914180236) do
     t.string   "lastname"
     t.string   "firstname"
     t.string   "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "password_digest"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "wines", force: :cascade do |t|
@@ -41,7 +42,7 @@ ActiveRecord::Schema.define(version: 20150914180236) do
     t.string   "producer"
     t.string   "vineyard"
     t.string   "predominant_variety"
-    t.float    "vintage"
+    t.integer  "vintage"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
   end

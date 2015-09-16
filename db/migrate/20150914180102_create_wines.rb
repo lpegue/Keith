@@ -6,7 +6,7 @@ class CreateWines < ActiveRecord::Migration
       t.string :producer
       t.string :vineyard
       t.string :predominant_variety
-      t.float :vintage
+      t.integer :vintage
 
       t.timestamps null: false
     end
