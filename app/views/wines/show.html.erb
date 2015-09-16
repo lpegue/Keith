@@ -6,9 +6,11 @@
 	<%=review.paired_with%>
 <%end%>
 
+<% @user.
+
 <br>
 
-<%= link_to "Back to list", wines_path%>
+<%= link_to "Back to wine list", wines_path %>
 <%= link_to "Delete", wine_path, method: :delete, data: { confirm: "Are you sure you want to delete this wine?"} %>
 <%= link_to "Edit", edit_wine_path( @wine ) %>
 <%= link_to "Add a Review", new_wine_review_path( @wine ) %>

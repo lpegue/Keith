@@ -3,34 +3,29 @@
 <%= form_for @wine do |f| %>
 
     <div>
-        <%= f.label :country %>
-        <%= f.text_field :country %>
+         <%= f.text_field :vintage, :placeholder=>"Vintage" %>
     </div>
 
     <div>
-        <%= f.label :region %>
-        <%= f.text_field :region %>
+        <%= f.text_field :predominant_variety, :placeholder=>"Predominant Variety"%>
     </div>
 
     <div>
-        <%= f.label :producer %>
-        <%= f.text_field :producer %>
+        <%= f.text_field :country, :placeholder=>"Country" %>
     </div>
 
     <div>
-        <%= f.label :vineyard %>
-        <%= f.text_field :vineyard %>
+         <%= f.text_field :region, :placeholder=>"Region"%>
     </div>
 
     <div>
-        <%= f.label :predominant_variety %>
-        <%= f.text_field :predominant_variety%>
+         <%= f.text_field :producer, :placeholder=>"Producer" %>
     </div>
 
     <div>
-        <%= f.label :vintage %>
-        <%= f.text_field :vintage %>
+         <%= f.text_field :vineyard, :placeholder=>"Vineyard" %>
     </div>
+
 
     <%= f.submit "Submit changes" %>
 

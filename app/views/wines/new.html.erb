@@ -1,6 +1,14 @@
-<h1>Add a new wine!</h1>
+<h1>Review A Wine You've Had!</h1>
 
 <%= form_for @wine do |f| %>
+
+    <div>
+         <%= f.text_field :vintage, :placeholder=>"Vintage" %>
+    </div>
+
+    <div>
+        <%= f.text_field :predominant_variety, :placeholder=>"Predominant Variety"%>
+    </div>
 
     <div>
         <%= f.text_field :country, :placeholder=>"Country" %>
@@ -18,16 +26,12 @@
          <%= f.text_field :vineyard, :placeholder=>"Vineyard" %>
     </div>
 
-    <div>
-        <%= f.text_field :predominant_variety, :placeholder=>"Predominant Variety"%>
-    </div>
-
-    <div>
-         <%= f.text_field :vintage, :placeholder=>"Vintage" %>
-    </div>
-
+ 
     <%= f.submit "Add" %>
 
 <% end %>
 
- <%= link_to "Back to list", wines_path %> 
+<%= link_to "Back to wine list", wines_path %> 
+<%= link_to "Home", '/home' %>
+<%= link_to "About", '/about' %>
+<%= link_to "Contact", '/contact' %>
