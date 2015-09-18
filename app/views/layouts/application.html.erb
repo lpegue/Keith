@@ -13,9 +13,11 @@
 	<%= link_to "Log Out", logout_path, method: :delete %>
 <%end%>
 
+<%= render 'layouts/nav' %>
 
-<%= yield %>
-
+<div class="container"> 
+	<%= yield %>
+</div>
 
 
 </body>

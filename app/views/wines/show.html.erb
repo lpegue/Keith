@@ -1,19 +1,31 @@
 <p><%= @wine.vintage %> <%= @wine.predominant_variety %> from the <%= @wine.region %> region of <%= @wine.country%>.  The producer is <%= @wine.producer%> and the vineyard is <%= @wine.vineyard%>.</p>
-<ul>
-  <% @wine.reviews.each do |review| %>
-    <li><%= review.rating %></li>
-	<li><%= review.comments %></li>
-   <li><%= review.paired_with %></li> 
-   <li>email:  <%= review.user.email %> </li>
-  <% end %> 
-</ul>
 
 
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>Rating</th>
+      <th>Comments</th>
+      <th>Paired With</th>
+      <th>Reviewed By</th>
+     </tr>
+  </thead>
 
-<br>
+  <tbody>
+    <% @wine.reviews.each do |review| %>
+      <tr>
+        <td><%= review.rating %></td>
+        <td><%= review.comments %></td>
+        <td><%= review.paired_with %></td>
+	    <td><%= review.user.email%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
 
 <%= link_to "Add A Review", new_wine_review_path( @wine ) %> <br>
-<%= link_to "Log Out", logout_path, method: :delete %> <br>
 <%= link_to "Back To Wine List", wines_path %> <br>
 <%= link_to "Delete", wine_path, method: :delete, data: { confirm: "Are you sure you want to delete this wine?"} %> <br>
 <%= link_to "Edit", edit_wine_path( @wine ) %> 

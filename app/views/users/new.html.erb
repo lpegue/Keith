@@ -1,34 +1,35 @@
 <h1>Sign Up</h1>
 
 <%= form_for @user do |f| %>
-<div>
-    <%= f.text_field :firstname, :placeholder=>"First Name" %>
+
+<div class="form-group">
+    <%= f.text_field :firstname, :placeholder=>"First Name", :class => "form-control" %>
 </div>
 
-<div>
-     <%= f.text_field :lastname, :placeholder=>"Last Name" %>
+<div class="form-group">
+     <%= f.text_field :lastname, :placeholder=>"Last Name", :class => "form-control" %>
 </div>
 
-<div>
-    <%= f.text_field :email, :placeholder=>"Email" %>
+<div class="form-group">
+    <%= f.text_field :email, :placeholder=>"Email", :class => "form-control" %>
 </div>
 
-<div>
-    <%= f.password_field :password, :placeholder=>"Password" %>
+<div class="form-group">
+    <%= f.password_field :password, :placeholder=>"Password", :class => "form-control" %>
 </div>
 
-<div>
-     <%= f.password_field :password_confirmation, :placeholder=>"Password Confirmation" %>
+<div class="form-group">
+     <%= f.password_field :password_confirmation, :placeholder=>"Password Confirmation",:class => "form-control" %>
 </div>
 
-<div>
-    <%= f.submit %>
+<div class="form-group">
+    <%= f.submit :class => "btn btn-primary" %>
 </div>
 
 <% end %>
 
-<%= link_to "About", "/about" %> <br>
-<%= link_to "Contact", "/contact" %> <br>
-<%= link_to "Review A Wine You've Had", new_wine_path %> <br>
-<%= link_to "Back To Wine List", wines_path %> <br>
-<%= link_to "Home", "/home" %>
+
+<%= link_to "Review A Wine You've Had", new_wine_path, :class => "btn btn-success" %> 
+
+
+

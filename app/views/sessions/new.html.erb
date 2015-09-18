@@ -2,24 +2,21 @@
 
 
 <%= form_for :login do |f| %>
-  <div>
+  <div class="form-group">
     <%= f.label :email %>
-    <%= f.text_field :email %>
+    <%= f.text_field :email, :class => "form-control" %>
   </div>
 
-  <div>
+  <div class="form-group">
     <%= f.label :password %>
-    <%= f.password_field :password %>
+    <%= f.password_field :password, :class => "form-control" %>
   </div>
 
-  <div>
-    <%= f.submit 'Log In' %>
+  <div class="form-group">
+    <%= f.submit 'Log In', :class => "btn btn-primary" %>
   </div>
   
 <% end %>
 
-<%= link_to "About", "/about" %> <br>
-<%= link_to "Contact", "/contact" %> <br>
-<%= link_to "Review A Wine You've Had", new_wine_path %> <br>
-<%= link_to "Back To Wine List", wines_path %> <br>
-<%= link_to "Home", "/home" %>
+
+<%= link_to "Review A Wine You've Had", new_wine_path, :class => "btn btn-success" %>

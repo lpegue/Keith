@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
  root to: "static_pages#home"
 
- get '/home' => 'static_pages#home'
+ get '/home' => 'static_pages#home', as: :home
 
  get '/contact' => 'static_pages#contact'
 
@@ -15,7 +15,7 @@ Rails.application.routes.draw do
    #  resources :reviews 
    # end
 
-  get '/login'     => 'sessions#new'
+  get '/login'     => 'sessions#new', as: :new_session
   post '/login'    => 'sessions#create'
   delete '/logout' => 'sessions#destroy', as: :logout
 
