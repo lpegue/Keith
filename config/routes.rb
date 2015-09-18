@@ -15,6 +15,10 @@ Rails.application.routes.draw do
    #  resources :reviews 
    # end
 
+  get '/login'     => 'sessions#new'
+  post '/login'    => 'sessions#create'
+  delete '/logout' => 'sessions#destroy', as: :logout
+
   resources :users
 
   get "/wines" => "wines#index"
@@ -31,6 +35,9 @@ Rails.application.routes.draw do
   patch "/wines/:wine_id/reviews/:id" => "reviews#update"
   delete "/wines/:wine_id/reviews/:id" => "reviews#destroy"
   get "/wines/:wine_id/reviews/:id/edit" => "reviews#edit", as: :edit_review
+
+
+  
 
   # get "/wines/:wine_id/reviews/:review_id/users/new" => "users#new", as: :new_users
   # post "/wines/:wine_id/reviews/:review_id/users/" => "users#create"

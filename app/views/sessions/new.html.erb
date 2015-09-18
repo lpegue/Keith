@@ -1,0 +1,25 @@
+<h1>Log In</h1>
+
+
+<%= form_for :login do |f| %>
+  <div>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+
+  <div>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+
+  <div>
+    <%= f.submit 'Log In' %>
+  </div>
+  
+<% end %>
+
+<%= link_to "About", "/about" %> <br>
+<%= link_to "Contact", "/contact" %> <br>
+<%= link_to "Review A Wine You've Had", new_wine_path %> <br>
+<%= link_to "Back To Wine List", wines_path %> <br>
+<%= link_to "Home", "/home" %>

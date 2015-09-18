@@ -41,4 +41,9 @@ class WinesController < ApplicationController
   		@wine.destroy
   		redirect_to wines_path
 	end
+
+	private
+	def wine_params
+  		@wine = Wine.new(params.require(:wine).permit(:country, :region, :producer, :vineyard, :predominant_variety, :vintage) )
+	end
 end

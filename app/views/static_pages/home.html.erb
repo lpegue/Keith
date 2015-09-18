@@ -1,9 +1,14 @@
-Home 
+<h1>Third Leaf Vineyard Consulting </h1>
+
+
+<%= image_tag "vinyard.jpg" , class: "vinyardImg" %><br>
 
 
 
 
-
-<%= link_to "About", '/about' %>
-<%= link_to "Contact", '/contact' %>
-<%= link_to "Review A Wine You've Had", new_wine_path %>
+<%= link_to "Sign Up", new_user_path %> <br>
+<%= link_to "Log In", login_path %> <br>
+<%= link_to "Review A Wine You've Had", new_wine_path %> <br>
+<%= link_to "About", "/about" %> <br>
+<%= link_to "Contact", "/contact" %> <br>
+<%= link_to "Log Out", logout_path, method: :delete %>

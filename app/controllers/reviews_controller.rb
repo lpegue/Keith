@@ -7,17 +7,28 @@ class ReviewsController < ApplicationController
 	def new
 		@review = Review.new
 		@wine = Wine.find(params[:wine_id])
+		
 	end
 
 	def create
 		@wine = Wine.find(params[:wine_id])
-		@review = @wine.reviews.new(params.require(:review).permit(:comments, :paired_with, :rating))
+
+		@user = current_user
+
+		@review = @wine.reviews.new({
+			comments: review_params[:comments],
+			paired_with: review_params[:paired_with],
+			rating: review_params[:rating],
+
+			user_id: current_user.id
+			})
 
 		if @review.save
 			redirect_to wine_path(@wine)
 		else
 			render :new
 		end
+
 	end
 
 	def edit
@@ -27,7 +38,7 @@ class ReviewsController < ApplicationController
 	def update
   		@review = Review.find(params[:id])
 
-  			if @review.update_attributes(params.require(:review).permit(:comments, :paired_with, :rating))
+  			if @review.update_attributes(review_params)
     			redirect_to reviews_path
   			else
  	   			render :edit
@@ -38,5 +49,10 @@ class ReviewsController < ApplicationController
 		@review = Review.find(params[:id])
   		@review.destroy
   		redirect_to review_path
+	end
+
+	private
+	def review_params
+		params.require(:review).permit(:comments, :paired_with, :rating)
 	end
 end
